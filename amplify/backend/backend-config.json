@@ -1,0 +1,24 @@
+{
+	"api": {
+		"ed2ring": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"securityType": "API_KEY"
+			}
+		}
+	},
+	"auth": {
+		"ed2ring7c9733be": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	},
+	"storage": {
+		"s3df70a3b1": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}

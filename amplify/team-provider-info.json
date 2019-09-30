@@ -1,0 +1,19 @@
+{
+    "ring": {
+        "awscloudformation": {
+            "AuthRoleName": "ed2-ring-ring-20190922195550-authRole",
+            "UnauthRoleArn": "arn:aws:iam::302223287239:role/ed2-ring-ring-20190922195550-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::302223287239:role/ed2-ring-ring-20190922195550-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "ed2-ring-ring-20190922195550-deployment",
+            "UnauthRoleName": "ed2-ring-ring-20190922195550-unauthRole",
+            "StackName": "ed2-ring-ring-20190922195550",
+            "StackId": "arn:aws:cloudformation:us-east-1:302223287239:stack/ed2-ring-ring-20190922195550/817186b0-dd94-11e9-8d5a-0e348661d726"
+        },
+        "categories": {
+            "auth": {
+                "ed2ring7c9733be": {}
+            }
+        }
+    }
+}

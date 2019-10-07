@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		3776558114AE10547E43DE22 /* Pods_ed2_ring.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1399DF175682CDDA2EFD91E0 /* Pods_ed2_ring.framework */; };
+		A434629B234AA77A0021D666 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A434629A234AA77A0021D666 /* API.swift */; };
+		A434629D234ABDE70021D666 /* Visitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A434629C234ABDE70021D666 /* Visitor.swift */; };
+		A434629F234AD4340021D666 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = A434629E234AD4340021D666 /* Device.swift */; };
 		A464E56423383FED00071E02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A464E56323383FED00071E02 /* AppDelegate.swift */; };
 		A464E56623383FED00071E02 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A464E56523383FED00071E02 /* LoginController.swift */; };
 		A464E56923383FED00071E02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A464E56723383FED00071E02 /* Main.storyboard */; };
 		A464E56C23383FED00071E02 /* ed2_ring.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A464E56A23383FED00071E02 /* ed2_ring.xcdatamodeld */; };
 		A464E56E23383FEF00071E02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A464E56D23383FEF00071E02 /* Assets.xcassets */; };
 		A464E57123383FEF00071E02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A464E56F23383FEF00071E02 /* LaunchScreen.storyboard */; };
-		A499DD952338439600A8E06E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499DD942338439600A8E06E /* API.swift */; };
 		A499DD9D23384BD400A8E06E /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499DD9C23384BD400A8E06E /* AuthService.swift */; };
 		A499DDA1233853CD00A8E06E /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = A499DDA0233853CD00A8E06E /* awsconfiguration.json */; };
 		A499DDA323385AC900A8E06E /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499DDA223385AC900A8E06E /* RoundedView.swift */; };
@@ -26,6 +28,9 @@
 		1399DF175682CDDA2EFD91E0 /* Pods_ed2_ring.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ed2_ring.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B39F9265D3C034BE47749F4 /* Pods-ed2-ring.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ed2-ring.debug.xcconfig"; path = "Target Support Files/Pods-ed2-ring/Pods-ed2-ring.debug.xcconfig"; sourceTree = "<group>"; };
 		A0FD0F3FEC588D4D541265BE /* Pods-ed2-ring.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ed2-ring.release.xcconfig"; path = "Target Support Files/Pods-ed2-ring/Pods-ed2-ring.release.xcconfig"; sourceTree = "<group>"; };
+		A434629A234AA77A0021D666 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
+		A434629C234ABDE70021D666 /* Visitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visitor.swift; sourceTree = SOURCE_ROOT; };
+		A434629E234AD4340021D666 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = SOURCE_ROOT; };
 		A464E56023383FED00071E02 /* ed2-ring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ed2-ring.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A464E56323383FED00071E02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A464E56523383FED00071E02 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -34,7 +39,6 @@
 		A464E56D23383FEF00071E02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A464E57023383FEF00071E02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A464E57223383FEF00071E02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A499DD942338439600A8E06E /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A499DD9C23384BD400A8E06E /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		A499DDA0233853CD00A8E06E /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		A499DDA223385AC900A8E06E /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 		A499DD9A2338481700A8E06E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A434629C234ABDE70021D666 /* Visitor.swift */,
+				A434629E234AD4340021D666 /* Device.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -126,7 +132,7 @@
 		A499DD9B2338482700A8E06E /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A499DD942338439600A8E06E /* API.swift */,
+				A434629A234AA77A0021D666 /* API.swift */,
 				A499DD9C23384BD400A8E06E /* AuthService.swift */,
 			);
 			path = Services;
@@ -262,9 +268,11 @@
 				A499DDA323385AC900A8E06E /* RoundedView.swift in Sources */,
 				A499DD9D23384BD400A8E06E /* AuthService.swift in Sources */,
 				A499DDA523385FB300A8E06E /* RoundedButton.swift in Sources */,
-				A499DD952338439600A8E06E /* API.swift in Sources */,
 				A464E56423383FED00071E02 /* AppDelegate.swift in Sources */,
+				A434629B234AA77A0021D666 /* API.swift in Sources */,
+				A434629D234ABDE70021D666 /* Visitor.swift in Sources */,
 				A499DDA72339936600A8E06E /* VisitorPreviewController.swift in Sources */,
+				A434629F234AD4340021D666 /* Device.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,21 +1,129 @@
 # this is an auto generated file. This will be overwritten
-query GetTodo($id: ID!) {
-  getTodo(id: $id) {
-    id
-    name
-    description
+query GetCustomer($customer_id: String!, $email: String!) {
+  getCustomer(customer_id: $customer_id, email: $email) {
+    customer_id
+    first_name
+    last_name
+    email
+    devices {
+      items {
+        id
+        device_name
+      }
+      nextToken
+    }
   }
 }
-query ListTodos(
-  $filter: ModelTodoFilterInput
+query ListCustomers(
+  $customer_id: String
+  $email: ModelStringKeyConditionInput
+  $filter: ModelCustomerFilterInput
+  $limit: Int
+  $nextToken: String
+  $sortDirection: ModelSortDirection
+) {
+  listCustomers(
+    customer_id: $customer_id
+    email: $email
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    sortDirection: $sortDirection
+  ) {
+    items {
+      customer_id
+      first_name
+      last_name
+      email
+      devices {
+        nextToken
+      }
+    }
+    nextToken
+  }
+}
+query GetDevice($id: ID!) {
+  getDevice(id: $id) {
+    id
+    device_name
+    customer {
+      customer_id
+      first_name
+      last_name
+      email
+      devices {
+        nextToken
+      }
+    }
+    images {
+      items {
+        id
+        identification
+        url
+        created_at
+      }
+      nextToken
+    }
+  }
+}
+query ListDevices(
+  $filter: ModelDeviceFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listDevices(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      name
-      description
+      device_name
+      customer {
+        customer_id
+        first_name
+        last_name
+        email
+      }
+      images {
+        nextToken
+      }
+    }
+    nextToken
+  }
+}
+query GetImage($id: ID!) {
+  getImage(id: $id) {
+    id
+    identification
+    url
+    created_at
+    device {
+      id
+      device_name
+      customer {
+        customer_id
+        first_name
+        last_name
+        email
+      }
+      images {
+        nextToken
+      }
+    }
+  }
+}
+query ListImages(
+  $filter: ModelImageFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listImages(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      identification
+      url
+      created_at
+      device {
+        id
+        device_name
+      }
     }
     nextToken
   }

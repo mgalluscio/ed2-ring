@@ -1,22 +1,181 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateTodo($input: CreateTodoInput!) {
-  createTodo(input: $input) {
-    id
-    name
-    description
+mutation CreateCustomer($input: CreateCustomerInput!) {
+  createCustomer(input: $input) {
+    customer_id
+    first_name
+    last_name
+    email
+    devices {
+      items {
+        id
+        device_name
+      }
+      nextToken
+    }
   }
 }
-mutation UpdateTodo($input: UpdateTodoInput!) {
-  updateTodo(input: $input) {
-    id
-    name
-    description
+mutation UpdateCustomer($input: UpdateCustomerInput!) {
+  updateCustomer(input: $input) {
+    customer_id
+    first_name
+    last_name
+    email
+    devices {
+      items {
+        id
+        device_name
+      }
+      nextToken
+    }
   }
 }
-mutation DeleteTodo($input: DeleteTodoInput!) {
-  deleteTodo(input: $input) {
+mutation DeleteCustomer($input: DeleteCustomerInput!) {
+  deleteCustomer(input: $input) {
+    customer_id
+    first_name
+    last_name
+    email
+    devices {
+      items {
+        id
+        device_name
+      }
+      nextToken
+    }
+  }
+}
+mutation CreateDevice($input: CreateDeviceInput!) {
+  createDevice(input: $input) {
     id
-    name
-    description
+    device_name
+    customer {
+      customer_id
+      first_name
+      last_name
+      email
+      devices {
+        nextToken
+      }
+    }
+    images {
+      items {
+        id
+        identification
+        url
+        created_at
+      }
+      nextToken
+    }
+  }
+}
+mutation UpdateDevice($input: UpdateDeviceInput!) {
+  updateDevice(input: $input) {
+    id
+    device_name
+    customer {
+      customer_id
+      first_name
+      last_name
+      email
+      devices {
+        nextToken
+      }
+    }
+    images {
+      items {
+        id
+        identification
+        url
+        created_at
+      }
+      nextToken
+    }
+  }
+}
+mutation DeleteDevice($input: DeleteDeviceInput!) {
+  deleteDevice(input: $input) {
+    id
+    device_name
+    customer {
+      customer_id
+      first_name
+      last_name
+      email
+      devices {
+        nextToken
+      }
+    }
+    images {
+      items {
+        id
+        identification
+        url
+        created_at
+      }
+      nextToken
+    }
+  }
+}
+mutation CreateImage($input: CreateImageInput!) {
+  createImage(input: $input) {
+    id
+    identification
+    url
+    created_at
+    device {
+      id
+      device_name
+      customer {
+        customer_id
+        first_name
+        last_name
+        email
+      }
+      images {
+        nextToken
+      }
+    }
+  }
+}
+mutation UpdateImage($input: UpdateImageInput!) {
+  updateImage(input: $input) {
+    id
+    identification
+    url
+    created_at
+    device {
+      id
+      device_name
+      customer {
+        customer_id
+        first_name
+        last_name
+        email
+      }
+      images {
+        nextToken
+      }
+    }
+  }
+}
+mutation DeleteImage($input: DeleteImageInput!) {
+  deleteImage(input: $input) {
+    id
+    identification
+    url
+    created_at
+    device {
+      id
+      device_name
+      customer {
+        customer_id
+        first_name
+        last_name
+        email
+      }
+      images {
+        nextToken
+      }
+    }
   }
 }

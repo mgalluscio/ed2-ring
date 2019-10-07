@@ -31,7 +31,10 @@ class LoginController: UIViewController {
             AuthService.instance.loginUser(withEmail: emailTextField.text!, andPassword: passwordTextField.text!) { (success, error) in
                 if success {
                     print("logged in")
-                    self.dismiss(animated: true, completion: nil)
+                    //self.dismiss(animated: true, completion: nil)
+                    DispatchQueue.main.async {
+                          self.dismiss(animated: true, completion: nil)
+                    }
                 }
                 else {
                     print("not logged in")
@@ -39,6 +42,5 @@ class LoginController: UIViewController {
             }
         }
     }
-    
 }
 

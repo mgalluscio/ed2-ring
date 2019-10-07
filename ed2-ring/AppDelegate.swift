@@ -11,6 +11,18 @@ import CoreData
 import AWSAppSync
 import AWSMobileClient
 
+class MyCognitoUserPoolsAuthProvider : AWSCognitoUserPoolsAuthProviderAsync {
+    func getLatestAuthToken(_ callback: @escaping (String?, Error?) -> Void) {
+        AWSMobileClient.default().getTokens { (tokens, error) in
+            if error != nil {
+                callback(nil, error)
+            } else {
+                callback(tokens?.idToken?.tokenString, nil)
+            }
+        }
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -25,8 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // AppSync configuration & client initialization
             let appSyncServiceConfig = try AWSAppSyncServiceConfig()
             let appSyncConfig = try AWSAppSyncClientConfiguration(appSyncServiceConfig: appSyncServiceConfig,
+                                                                  userPoolsAuthProvider: AWSMobileClient.default() as? AWSCognitoUserPoolsAuthProvider,
                                                                   cacheConfiguration: cacheConfiguration)
             appSyncClient = try AWSAppSyncClient(appSyncConfig: appSyncConfig)
+            appSyncClient?.apolloClient?.cacheKeyForObject = { $0["id"] }
             print("Initialized appsync client.")
         } catch {
             print("Error initializing appsync client. \(error)")
@@ -40,47 +54,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     // access main storyboard
                     let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                     // create instance of loginVC
-                    let VistitorPreviewVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+                    let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
                     // make window first and foremost, most important
+                    loginVC.modalPresentationStyle = .fullScreen
                     self.window?.makeKeyAndVisible()
                     // present LoginVC on top of whatever root view controller is
-                    self.window?.rootViewController?.present(VistitorPreviewVC, animated: true, completion: nil)
+                    self.window?.rootViewController?.present(loginVC, animated: true, completion: nil)
                 case .signedOutFederatedTokensInvalid:
                     // access main storyboard
                     let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                     // create instance of loginVC
-                    let VistitorPreviewVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+                    let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
                     // make window first and foremost, most important
+                    loginVC.modalPresentationStyle = .fullScreen
                     self.window?.makeKeyAndVisible()
                     // present LoginVC on top of whatever root view controller is
-                    self.window?.rootViewController?.present(VistitorPreviewVC, animated: true, completion: nil)
+                    self.window?.rootViewController?.present(loginVC, animated: true, completion: nil)
                 case .signedOutUserPoolsTokenInvalid:
                     // access main storyboard
                     let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                     // create instance of loginVC
-                    let VistitorPreviewVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+                    let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
                     // make window first and foremost, most important
+                    loginVC.modalPresentationStyle = .fullScreen
                     self.window?.makeKeyAndVisible()
                     // present LoginVC on top of whatever root view controller is
-                    self.window?.rootViewController?.present(VistitorPreviewVC, animated: true, completion: nil)
+                    self.window?.rootViewController?.present(loginVC, animated: true, completion: nil)
                 case .guest:
                     // access main storyboard
                     let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                     // create instance of loginVC
-                    let VistitorPreviewVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+                    let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
                     // make window first and foremost, most important
+                    loginVC.modalPresentationStyle = .fullScreen
                     self.window?.makeKeyAndVisible()
                     // present LoginVC on top of whatever root view controller is
-                    self.window?.rootViewController?.present(VistitorPreviewVC, animated: true, completion: nil)
+                    self.window?.rootViewController?.present(loginVC, animated: true, completion: nil)
                 case .unknown:
                     // access main storyboard
                     let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                     // create instance of loginVC
-                    let VistitorPreviewVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+                    let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
                     // make window first and foremost, most important
+                    loginVC.modalPresentationStyle = .fullScreen
                     self.window?.makeKeyAndVisible()
                     // present LoginVC on top of whatever root view controller is
-                    self.window?.rootViewController?.present(VistitorPreviewVC, animated: true, completion: nil)
+                    self.window?.rootViewController?.present(loginVC, animated: true, completion: nil)
                 }
             } else if let error = error {
                 print("error: \(error.localizedDescription)")
@@ -161,4 +180,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
+
 

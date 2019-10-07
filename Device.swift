@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+class Device {
+    private var _location: String
+    
+    var location: String {
+        return _location
+    }
+    
+    init(location: String) {
+        self._location = location
+    }
+}

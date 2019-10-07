@@ -1,22 +1,181 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreateTodo {
-  onCreateTodo {
-    id
-    name
-    description
+subscription OnCreateCustomer {
+  onCreateCustomer {
+    customer_id
+    first_name
+    last_name
+    email
+    devices {
+      items {
+        id
+        device_name
+      }
+      nextToken
+    }
   }
 }
-subscription OnUpdateTodo {
-  onUpdateTodo {
-    id
-    name
-    description
+subscription OnUpdateCustomer {
+  onUpdateCustomer {
+    customer_id
+    first_name
+    last_name
+    email
+    devices {
+      items {
+        id
+        device_name
+      }
+      nextToken
+    }
   }
 }
-subscription OnDeleteTodo {
-  onDeleteTodo {
+subscription OnDeleteCustomer {
+  onDeleteCustomer {
+    customer_id
+    first_name
+    last_name
+    email
+    devices {
+      items {
+        id
+        device_name
+      }
+      nextToken
+    }
+  }
+}
+subscription OnCreateDevice {
+  onCreateDevice {
     id
-    name
-    description
+    device_name
+    customer {
+      customer_id
+      first_name
+      last_name
+      email
+      devices {
+        nextToken
+      }
+    }
+    images {
+      items {
+        id
+        identification
+        url
+        created_at
+      }
+      nextToken
+    }
+  }
+}
+subscription OnUpdateDevice {
+  onUpdateDevice {
+    id
+    device_name
+    customer {
+      customer_id
+      first_name
+      last_name
+      email
+      devices {
+        nextToken
+      }
+    }
+    images {
+      items {
+        id
+        identification
+        url
+        created_at
+      }
+      nextToken
+    }
+  }
+}
+subscription OnDeleteDevice {
+  onDeleteDevice {
+    id
+    device_name
+    customer {
+      customer_id
+      first_name
+      last_name
+      email
+      devices {
+        nextToken
+      }
+    }
+    images {
+      items {
+        id
+        identification
+        url
+        created_at
+      }
+      nextToken
+    }
+  }
+}
+subscription OnCreateImage {
+  onCreateImage {
+    id
+    identification
+    url
+    created_at
+    device {
+      id
+      device_name
+      customer {
+        customer_id
+        first_name
+        last_name
+        email
+      }
+      images {
+        nextToken
+      }
+    }
+  }
+}
+subscription OnUpdateImage {
+  onUpdateImage {
+    id
+    identification
+    url
+    created_at
+    device {
+      id
+      device_name
+      customer {
+        customer_id
+        first_name
+        last_name
+        email
+      }
+      images {
+        nextToken
+      }
+    }
+  }
+}
+subscription OnDeleteImage {
+  onDeleteImage {
+    id
+    identification
+    url
+    created_at
+    device {
+      id
+      device_name
+      customer {
+        customer_id
+        first_name
+        last_name
+        email
+      }
+      images {
+        nextToken
+      }
+    }
   }
 }

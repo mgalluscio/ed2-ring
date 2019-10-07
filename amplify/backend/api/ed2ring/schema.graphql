@@ -1,5 +1,22 @@
-type Todo @model {
+type Customer @model @key(fields: ["customer_id", "email"]){
+  customer_id: String!
+  first_name: String!
+  last_name: String!
+  email: String!
+  devices: [Device] @connection(name: "CustomerDevices")
+}
+
+type Device @model {
   id: ID!
-  name: String!
-  description: String
+  device_name: String!
+  customer: Customer @connection(name: "CustomerDevices")
+  images: [Image] @connection(name: "DeviceImages")
+}
+
+type Image @model {
+  id: ID!
+  identification: String!
+  url: String!
+  created_at: String!
+  device: Device @connection(name: "DeviceImages")
 }

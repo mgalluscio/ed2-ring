@@ -1,6 +1,6 @@
 {
 	"api": {
-		"ed2ring": {
+		"ed2ring2": {
 			"service": "AppSync",
 			"providerPlugin": "awscloudformation",
 			"output": {

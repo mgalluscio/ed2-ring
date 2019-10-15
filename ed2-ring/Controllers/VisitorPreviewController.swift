@@ -23,6 +23,27 @@ class VisitorPreviewController: UIViewController {
         super.viewDidLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appSyncClient = appDelegate.appSyncClient
+        tableView.delegate = self
+        tableView.dataSource = self
+        print(AWSMobileClient.default().identityId ?? "")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //let customer_id = AWSMobileClient.default().identityId!
+        appSyncClient?.fetch(query: GetCustomerQuery(id: "us-east-1:0d8c80dd-4d6f-46c7-ae0c-0bf0042b5c27"))  { (result, error) in
+            if error != nil {
+                print(error?.localizedDescription ?? "")
+                return
+            } else {
+                for device in (result?.data?.getCustomer?.devices?.items!)! {
+                    let new_device = Device(id: device?.id ?? "",location: device?.location ?? "")
+                    print(new_device.location)
+                    self.devices.append(new_device)
+                }
+            }
+            self.tableView.reloadData()
+        }
     }
     @IBAction func logoutWasPressed(_ sender: Any) {
         AWSMobileClient.default().signOut()
@@ -32,18 +53,24 @@ class VisitorPreviewController: UIViewController {
         present(loginVC!, animated: true, completion: nil)
     }
     
-    func listDevices() {
-        appSyncClient?.fetch(query: ListDevicesQuery())  { (result, error) in
-          if error != nil {
-            print(error?.localizedDescription ?? "")
-              return
-          }
-            result?.data?.listDevices?.items!.forEach {
-                let device = Device.init(location: $0?.deviceName ?? "None")
-                self.devices.append(device)
-            }
-        }
+}
+
+extension VisitorPreviewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(devices.count)
+        return devices.count
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DeviceCell", for: indexPath) as? DeviceCell else { return UITableViewCell() }
+        let device = devices[indexPath.row]
+        cell.configureCell(device: device.location)
+        return cell
+    }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    // present WeaponVC based on selected row from tableView
 }

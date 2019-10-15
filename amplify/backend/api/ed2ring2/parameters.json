@@ -1,5 +1,5 @@
 {
-    "AppSyncApiName": "ed2ring",
+    "AppSyncApiName": "ed2ring2",
     "DynamoDBBillingMode": "PAY_PER_REQUEST",
     "DynamoDBEnableServerSideEncryption": "false"
 }

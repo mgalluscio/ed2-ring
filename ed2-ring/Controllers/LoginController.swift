@@ -35,6 +35,7 @@ class LoginController: UIViewController {
                     DispatchQueue.main.async {
                           self.dismiss(animated: true, completion: nil)
                     }
+                    print(AWSMobileClient.default().identityId ?? "Unknown")
                 }
                 else {
                     print("not logged in")

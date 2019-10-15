@@ -1,5 +1,5 @@
 projects:
-  ed2ring:
+  ed2ring2:
     schemaPath: graphql/schema.json
     includes:
       - graphql/**/*.graphql

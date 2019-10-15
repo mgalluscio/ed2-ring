@@ -1,14 +1,14 @@
 # this is an auto generated file. This will be overwritten
 subscription OnCreateCustomer {
   onCreateCustomer {
-    customer_id
+    id
     first_name
     last_name
     email
     devices {
       items {
         id
-        device_name
+        location
       }
       nextToken
     }
@@ -16,14 +16,14 @@ subscription OnCreateCustomer {
 }
 subscription OnUpdateCustomer {
   onUpdateCustomer {
-    customer_id
+    id
     first_name
     last_name
     email
     devices {
       items {
         id
-        device_name
+        location
       }
       nextToken
     }
@@ -31,14 +31,14 @@ subscription OnUpdateCustomer {
 }
 subscription OnDeleteCustomer {
   onDeleteCustomer {
-    customer_id
+    id
     first_name
     last_name
     email
     devices {
       items {
         id
-        device_name
+        location
       }
       nextToken
     }
@@ -47,9 +47,9 @@ subscription OnDeleteCustomer {
 subscription OnCreateDevice {
   onCreateDevice {
     id
-    device_name
+    location
     customer {
-      customer_id
+      id
       first_name
       last_name
       email
@@ -60,9 +60,8 @@ subscription OnCreateDevice {
     images {
       items {
         id
-        identification
         url
-        created_at
+        identification
       }
       nextToken
     }
@@ -71,9 +70,9 @@ subscription OnCreateDevice {
 subscription OnUpdateDevice {
   onUpdateDevice {
     id
-    device_name
+    location
     customer {
-      customer_id
+      id
       first_name
       last_name
       email
@@ -84,9 +83,8 @@ subscription OnUpdateDevice {
     images {
       items {
         id
-        identification
         url
-        created_at
+        identification
       }
       nextToken
     }
@@ -95,9 +93,9 @@ subscription OnUpdateDevice {
 subscription OnDeleteDevice {
   onDeleteDevice {
     id
-    device_name
+    location
     customer {
-      customer_id
+      id
       first_name
       last_name
       email
@@ -108,9 +106,8 @@ subscription OnDeleteDevice {
     images {
       items {
         id
-        identification
         url
-        created_at
+        identification
       }
       nextToken
     }
@@ -119,14 +116,13 @@ subscription OnDeleteDevice {
 subscription OnCreateImage {
   onCreateImage {
     id
-    identification
     url
-    created_at
+    identification
     device {
       id
-      device_name
+      location
       customer {
-        customer_id
+        id
         first_name
         last_name
         email
@@ -140,14 +136,13 @@ subscription OnCreateImage {
 subscription OnUpdateImage {
   onUpdateImage {
     id
-    identification
     url
-    created_at
+    identification
     device {
       id
-      device_name
+      location
       customer {
-        customer_id
+        id
         first_name
         last_name
         email
@@ -161,14 +156,13 @@ subscription OnUpdateImage {
 subscription OnDeleteImage {
   onDeleteImage {
     id
-    identification
     url
-    created_at
+    identification
     device {
       id
-      device_name
+      location
       customer {
-        customer_id
+        id
         first_name
         last_name
         email

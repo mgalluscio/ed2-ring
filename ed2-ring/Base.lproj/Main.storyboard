@@ -190,10 +190,10 @@
             </objects>
             <point key="canvasLocation" x="1039.1304347826087" y="20.758928571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--History Controller-->
         <scene sceneID="FkM-do-idY">
             <objects>
-                <viewController id="WkQ-V3-2X0" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HistoryVC" id="WkQ-V3-2X0" customClass="HistoryController" customModule="ed2_ring" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hC3-Zz-Wud">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -240,6 +240,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HRd-67-LGq"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="2xp-5W-LPT" id="mba-aU-4F5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0su-Oi-hBl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

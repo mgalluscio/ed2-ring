@@ -31,17 +31,20 @@ class VisitorPreviewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //let customer_id = AWSMobileClient.default().identityId!
-        appSyncClient?.fetch(query: GetCustomerQuery(id: "us-east-1:0d8c80dd-4d6f-46c7-ae0c-0bf0042b5c27"))  { (result, error) in
+        var loaded_devices = [Device]()
+        appSyncClient?.fetch(query: GetCustomerQuery(id: "us-east-1:0d8c80dd-4d6f-46c7-ae0c-0bf0042b5c27"), cachePolicy: .fetchIgnoringCacheData)  { (result, error) in
             if error != nil {
                 print(error?.localizedDescription ?? "")
                 return
             } else {
+                self.name.text = "Welcome, \(result?.data?.getCustomer?.firstName as! String)"
                 for device in (result?.data?.getCustomer?.devices?.items!)! {
                     let new_device = Device(id: device?.id ?? "",location: device?.location ?? "")
                     print(new_device.location)
-                    self.devices.append(new_device)
+                    loaded_devices.append(new_device)
                 }
             }
+            self.devices = loaded_devices
             self.tableView.reloadData()
         }
     }
@@ -72,5 +75,27 @@ extension VisitorPreviewController: UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     
-    // present WeaponVC based on selected row from tableView
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let device = devices[indexPath.row]
+        print(device.id)
+        var visitors = [Visitor]()
+        appSyncClient?.fetch(query: GetDeviceQuery(id: device.id), cachePolicy: .fetchIgnoringCacheData)  { (result, error) in
+            if error != nil {
+                print(error?.localizedDescription ?? "")
+                return
+            } else {
+                for image in ((result?.data?.getDevice?.images?.items)!) {
+                    let new_visitor = Visitor(id: image?.id ?? "", image_url: image?.url ?? "", identification: image?.identification ?? "")
+                    visitors.append(new_visitor)
+                    print(new_visitor.image_url)
+                }
+            }
+            if visitors.count > 0 {
+                guard let visitorVC = self.storyboard?.instantiateViewController(withIdentifier: "HistoryVC") as? HistoryController else { return }
+                visitorVC.initializeData(images: visitors)
+                self.present(visitorVC, animated: true, completion: nil)
+            }
+        }
+        
+    }
 }

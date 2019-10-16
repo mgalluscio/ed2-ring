@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3776558114AE10547E43DE22 /* Pods_ed2_ring.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1399DF175682CDDA2EFD91E0 /* Pods_ed2_ring.framework */; };
+		A40DFB552356923900785C2E /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40DFB542356923900785C2E /* HistoryController.swift */; };
+		A40DFB572356AB3600785C2E /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40DFB562356AB3600785C2E /* ImageCell.swift */; };
 		A434629D234ABDE70021D666 /* Visitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A434629C234ABDE70021D666 /* Visitor.swift */; };
 		A434629F234AD4340021D666 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = A434629E234AD4340021D666 /* Device.swift */; };
 		A464E56423383FED00071E02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A464E56323383FED00071E02 /* AppDelegate.swift */; };
@@ -29,6 +31,8 @@
 		1399DF175682CDDA2EFD91E0 /* Pods_ed2_ring.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ed2_ring.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B39F9265D3C034BE47749F4 /* Pods-ed2-ring.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ed2-ring.debug.xcconfig"; path = "Target Support Files/Pods-ed2-ring/Pods-ed2-ring.debug.xcconfig"; sourceTree = "<group>"; };
 		A0FD0F3FEC588D4D541265BE /* Pods-ed2-ring.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ed2-ring.release.xcconfig"; path = "Target Support Files/Pods-ed2-ring/Pods-ed2-ring.release.xcconfig"; sourceTree = "<group>"; };
+		A40DFB542356923900785C2E /* HistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryController.swift; sourceTree = "<group>"; };
+		A40DFB562356AB3600785C2E /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		A434629C234ABDE70021D666 /* Visitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visitor.swift; sourceTree = SOURCE_ROOT; };
 		A434629E234AD4340021D666 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = SOURCE_ROOT; };
 		A464E56023383FED00071E02 /* ed2-ring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ed2-ring.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +113,7 @@
 			children = (
 				A464E56523383FED00071E02 /* LoginController.swift */,
 				A499DDA62339936600A8E06E /* VisitorPreviewController.swift */,
+				A40DFB542356923900785C2E /* HistoryController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 				A499DDA223385AC900A8E06E /* RoundedView.swift */,
 				A499DDA423385FB300A8E06E /* RoundedButton.swift */,
 				A4E89A692355479F00B2ED04 /* DeviceCell.swift */,
+				A40DFB562356AB3600785C2E /* ImageCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -270,6 +276,7 @@
 				A464E56C23383FED00071E02 /* ed2_ring.xcdatamodeld in Sources */,
 				A499DDA323385AC900A8E06E /* RoundedView.swift in Sources */,
 				A499DD9D23384BD400A8E06E /* AuthService.swift in Sources */,
+				A40DFB552356923900785C2E /* HistoryController.swift in Sources */,
 				A4E89A682355179E00B2ED04 /* API.swift in Sources */,
 				A499DDA523385FB300A8E06E /* RoundedButton.swift in Sources */,
 				A464E56423383FED00071E02 /* AppDelegate.swift in Sources */,
@@ -277,6 +284,7 @@
 				A4E89A6A2355479F00B2ED04 /* DeviceCell.swift in Sources */,
 				A499DDA72339936600A8E06E /* VisitorPreviewController.swift in Sources */,
 				A434629F234AD4340021D666 /* Device.swift in Sources */,
+				A40DFB572356AB3600785C2E /* ImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

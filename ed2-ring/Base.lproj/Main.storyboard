@@ -208,25 +208,28 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ez0-N7-OVG">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="Ez0-N7-OVG" customClass="ImageCell" customModule="ed2_ring" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Vz1-Yf-id6">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fmU-2k-UWY">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Shq-BY-BVy">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="fmU-2k-UWY" firstAttribute="leading" secondItem="Vz1-Yf-id6" secondAttribute="leading" id="Spj-3F-tZQ"/>
-                                                <constraint firstAttribute="trailing" secondItem="fmU-2k-UWY" secondAttribute="trailing" id="X8x-9W-Gcb"/>
-                                                <constraint firstAttribute="bottom" secondItem="fmU-2k-UWY" secondAttribute="bottom" id="dzB-Fh-ooi"/>
-                                                <constraint firstItem="fmU-2k-UWY" firstAttribute="top" secondItem="Vz1-Yf-id6" secondAttribute="top" id="oZV-ZF-Gy2"/>
+                                                <constraint firstItem="Shq-BY-BVy" firstAttribute="leading" secondItem="Vz1-Yf-id6" secondAttribute="leading" id="G7b-T8-wmO"/>
+                                                <constraint firstAttribute="bottom" secondItem="Shq-BY-BVy" secondAttribute="bottom" id="VX3-a7-2IA"/>
+                                                <constraint firstAttribute="trailing" secondItem="Shq-BY-BVy" secondAttribute="trailing" id="i9L-Yz-ycg"/>
+                                                <constraint firstItem="Shq-BY-BVy" firstAttribute="top" secondItem="Vz1-Yf-id6" secondAttribute="top" id="svB-qo-SPg"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="150" height="150"/>
+                                        <connections>
+                                            <outlet property="guestPreview" destination="Shq-BY-BVy" id="1DN-HO-k5a"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -241,7 +244,7 @@
                         <viewLayoutGuide key="safeArea" id="HRd-67-LGq"/>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="2xp-5W-LPT" id="mba-aU-4F5"/>
+                        <outlet property="collectionView" destination="2xp-5W-LPT" id="aIn-Va-ULI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0su-Oi-hBl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

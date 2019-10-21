@@ -92,7 +92,7 @@ extension VisitorPreviewController: UITableViewDelegate, UITableViewDataSource {
             }
             if visitors.count > 0 {
                 guard let visitorVC = self.storyboard?.instantiateViewController(withIdentifier: "HistoryVC") as? HistoryController else { return }
-                visitorVC.initializeData(images: visitors)
+                visitorVC.initializeData(visitors: visitors)
                 self.present(visitorVC, animated: true, completion: nil)
             }
         }

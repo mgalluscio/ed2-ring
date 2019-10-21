@@ -9,6 +9,11 @@
 import UIKit
 
 class ImageCell: UICollectionViewCell {
-    url
+    @IBOutlet weak var guestPreview: UIImageView!
+    
+    func configureCell(image: UIImage) {
+        self.guestPreview.image = image
+    }
+    
     
 }
